@@ -1,0 +1,42 @@
+---
+
+- name: Nginx | Debian | Install required packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: true
+  loop:
+    - "{{ nginxDebianPackages }}"
+
+- name: Nginx | Debian | Place Nginx repo file
+  template:
+    src: "{{ nginxDebianRepoSource }}"
+    dest: "{{ nginxDebianRepoDestination }}"
+
+- name: Nginx | Debian | Place Nginx priority file
+  template:
+    src: "{{ nginxDebianPriorityFileSource }}"
+    dest: "{{ nginxDebianPriorityFileDestination }}"
+
+- name: Nginx | Debian | Get GPG key
+  get_url:
+    url: "{{ nginxDebianGPGKeyUrl }}"
+    dest: "{{ nginxDebianGPGKeyLocation }}"
+
+- name: Nginx | Debian | Install GPG Key
+  shell: "gpg --quiet --import --import-options import-show {{ nginxDebianGPGKeyLocation }}"
+
+- name: Nginx | Debian | Installing nginx
+  apt:
+    name: "{{ nginxDebianPackageName }}"
+    state: present
+    update_cache: true
+
+# initial start of nginx for file creation
+- name: Nginx | Debian | Initial Startup
+  systemd:
+    name: "nginx.service"
+    state: "started"
+
+- name: Nginx | Debian | Configure nginx
+  include_tasks: Debian/configure.yml

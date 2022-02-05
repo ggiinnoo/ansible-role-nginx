@@ -1,0 +1,8 @@
+---
+
+- name: Nginx | Debian | Place custom nginx file
+  template:
+    src: "{{ nginxDebianNginxTemplateSource }}"
+    dest: "{{ nginxDebianNginxTemplateDestination }}"
+  notify:
+    - nginxDebianHandler

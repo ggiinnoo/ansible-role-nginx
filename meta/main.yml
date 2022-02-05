@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  role_name: Nginx
+  author: Gino Jansen
+  description: Configure php
+  license: license (BSD, MIT)
+  platforms:
+    - name: Centos
+      versions:
+        - 7
+    - name: RedHat
+      versions:
+        - 7
+
+  min_ansible_version: 2.5
+
+  galaxy_tags:
+    - webserver
+    - nginx
+
+dependencies: []

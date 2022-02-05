@@ -1,0 +1,13 @@
+---
+
+- name: nginxRedHatHandler
+  service:
+    name: nginx
+    state: restarted
+    enabled: true
+
+- name: nginxDebianHandler
+  service:
+    name: nginx
+    state: restarted
+    enabled: true

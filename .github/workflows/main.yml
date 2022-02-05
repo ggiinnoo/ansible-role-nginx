@@ -1,0 +1,59 @@
+---
+name: Ansible role nginx
+
+on:
+  push:
+    branches:
+     -  'release/**'
+
+defaults:
+  run:
+    working-directory: 'ggiinnoo.nginx'
+
+jobs:
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'ggiinnoo.nginx'
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies.
+        run: pip3 install yamllint
+
+      - name: Lint code.
+        run: |
+          yamllint .
+  CentOS:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: ['centos7']
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
+      - uses: gofrolist/molecule-action@v2
+        env:
+          DOCKER_IMAGE: ${{ matrix.os }}
+
+  Debian:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: ['debian10', 'debian11']
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
+      - uses: gofrolist/molecule-action@v2
+        env:
+          DOCKER_IMAGE: ${{ matrix.os }}

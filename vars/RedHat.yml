@@ -1,0 +1,9 @@
+---
+
+nginxRedHatPackageName: "nginx"
+
+nginxRedHatRepoSource: "{{ role_path }}/templates/nginxRedHat.repo"
+nginxRedHatRepoDestination: "/etc/yum.repos.d/nginx.repo"
+
+nginxRedHatNginxTemplateSource: "{{ role_path }}/templates/nginxRedHat.conf.j2"
+nginxRedHatNginxTemplateDestination: "/etc/nginx/nginx.conf"

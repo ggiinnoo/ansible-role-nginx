@@ -1,0 +1,19 @@
+---
+
+# What release do you want. Stable or mainline | Only used during installation
+nginxRedHatRelease: stable
+
+nginxServicePort: 80
+nginxServiceSecurePort: 443
+
+# Turn of server signatures?
+nginxServiceSignatures: true
+
+# server_names_hash_bucket_size
+nginxServerNameHashBucketSize: 256
+
+nginxErrorLog: "/var/log/nginx/error.log"
+nginxAccessLog: "/var/log/nginx/access.log"
+
+nginxConfLocationDest: "/etc/nginx/nginx.conf"
+nginxConfLocationSrc: "{{ role_path }}/templates/nginxRedHat.conf.j2"

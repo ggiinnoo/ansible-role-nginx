@@ -1,0 +1,11 @@
+---
+
+- name: Nginx | Debian | Installing nginx
+  include_tasks: Debian/install.yml
+  when:
+    - nginxDebianPackageName not in ansible_facts.packages
+
+- name: Nginx | Debian | Configure nginx
+  include_tasks: Debian/configure.yml
+  when:
+    - nginxDebianPackageName in ansible_facts.packages

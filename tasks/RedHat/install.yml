@@ -1,0 +1,21 @@
+---
+
+- name: Nginx | Redhat | Place Nginx repo file
+  template:
+    src: "{{ nginxRedHatRepoSource }}"
+    dest: "{{ nginxRedHatRepoDestination }}"
+
+- name: Nginx | RedHat | Installing nginx
+  yum:
+    name: "{{ nginxRedHatPackageName }}"
+    state: installed
+    update_cache: true
+
+# initial start of nginx for file creation
+- name: Nginx | RedHat | Initial Startup
+  systemd:
+    name: "nginx.service"
+    state: "started"
+
+- name: Nginx | RedHat | Configure nginx
+  include_tasks: RedHat/configure.yml

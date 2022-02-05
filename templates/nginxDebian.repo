@@ -1,0 +1,14 @@
+{% if ansible_distribution_major_version == 11 %}
+{% if nginxRedHatRelease == 'stable' %}
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu bullseye nginx"
+{% elif nginxRedHatRelease == 'mainline' %}
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/ubuntu bullseye nginx"
+{% endif %}
+
+{% elif ansible_distribution_major_version == 10 %}
+{% if nginxRedHatRelease == 'stable' %}
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu buster nginx"
+{% elif nginxRedHatRelease == 'mainline' %}
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/ubuntu buster nginx"
+{% endif %}
+{% endif %}
