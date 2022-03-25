@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  role_name: Nginx
+  role_name: nginx
   author: Gino Jansen
-  description: Configure php
+  description: Configure nginx
   license: license (BSD, MIT)
   platforms:
     - name: Centos
@@ -11,6 +11,10 @@ galaxy_info:
     - name: RedHat
       versions:
         - 7
+    - name: Debian
+      versions:
+        - 10
+        - 11
 
   min_ansible_version: 2.5
 
