@@ -1,8 +1,5 @@
 ---
 
-# What release do you want. Stable or mainline | Only used during installation
-nginxRedHatRelease: stable
-
 nginxServicePort: 80
 nginxServiceSecurePort: 443
 

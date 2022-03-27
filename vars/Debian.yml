@@ -8,6 +8,9 @@ nginxDebianPackages:
 nginxDebianRepoSource: "{{ role_path }}/templates/nginxDebian.repo"
 nginxDebianRepoDestination: "/etc/apt/sources.list.d/nginx.list"
 
+nginxUbuntuRepoSource: "{{ role_path }}/templates/nginxDebian.repo"
+nginxUbuntuRepoDestination: "/etc/apt/sources.list.d/nginx.list"
+
 nginxDebianNginxTemplateSource: "{{ role_path }}/templates/nginxDebian.conf.j2"
 nginxDebianNginxTemplateDestination: "/etc/nginx/nginx.conf"
 
@@ -16,3 +19,7 @@ nginxDebianGPGKeyLocation: "/usr/share/keyrings/nginx-archive-keyring.gpg"
 
 nginxDebianPriorityFileSource: "{{ role_path }}/templates/aptPriority.conf"
 nginxDebianPriorityFileDestination: "/etc/apt/preferences.d/99nginx"
+
+nginxUbuntuRelease: "stable"
+
+nginxDebianRelease: "stable"

@@ -12,6 +12,13 @@
   template:
     src: "{{ nginxDebianRepoSource }}"
     dest: "{{ nginxDebianRepoDestination }}"
+  when: ansible_distribution == 'Debian'
+
+- name: Nginx | Ubuntu | Place Nginx repo file
+  template:
+    src: "{{ nginxUbuntuRepoSource }}"
+    dest: "{{ nginxUbuntuRepoDestination }}"
+  when: ansible_distribution == 'UBuntu'
 
 - name: Nginx | Debian | Place Nginx priority file
   template:
