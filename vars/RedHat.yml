@@ -1,5 +1,8 @@
 ---
 
+# What release do you want. Stable or mainline | Only used during installation
+nginxRedHatRelease: stable
+
 nginxRedHatPackageName: "nginx"
 
 nginxRedHatRepoSource: "{{ role_path }}/templates/nginxRedHat.repo"

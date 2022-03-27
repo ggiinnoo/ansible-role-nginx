@@ -1,0 +1,6 @@
+{% if ansible_distribution_major_version == '20' %}
+{% if nginxUbuntuRelease == 'stable' %}
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu focal nginx
+{% elif nginxUbuntuRelease == 'mainline' %}
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/ubuntu focal nginx
+{% endif %}
