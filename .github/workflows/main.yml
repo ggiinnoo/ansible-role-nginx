@@ -4,8 +4,8 @@ name: Ansible role nginx
 on:
   push:
     branches:
-     -  'release/**'
-     -  'feature/**'
+      - 'release/**'
+      - 'feature/**'
 
 defaults:
   run:
