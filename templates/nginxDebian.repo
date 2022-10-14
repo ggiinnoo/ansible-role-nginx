@@ -1,11 +1,11 @@
-{% if ansible_distribution_major_version == 11 %}
+{% if ansible_distribution_major_version == '11' %}
 {% if nginxDebianRelease == 'stable' %}
 deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu bullseye nginx"
 {% elif nginxDebianRelease == 'mainline' %}
 deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/ubuntu bullseye nginx"
 {% endif %}
 
-{% elif ansible_distribution_major_version == 10 %}
+{% elif ansible_distribution_major_version == '10' %}
 {% if nginxDebianRelease == 'stable' %}
 deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu buster nginx"
 {% elif nginxDebianRelease == 'mainline' %}
