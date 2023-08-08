@@ -25,13 +25,8 @@
     src: "{{ nginxDebianPriorityFileSource }}"
     dest: "{{ nginxDebianPriorityFileDestination }}"
 
-- name: Nginx | Debian | Get GPG key
-  get_url:
-    url: "{{ nginxDebianGPGKeyUrl }}"
-    dest: "{{ nginxDebianGPGKeyLocation }}"
-
-- name: Nginx | Debian | Install GPG Key
-  shell: "gpg --quiet --import --import-options import-show {{ nginxDebianGPGKeyLocation }}"
+- name: Nginx | Debian | Get and Install GPG Key
+  shell: "curl {{ nginxDebianGPGKeyUrl }} | gpg --dearmor | tee {{ nginxDebianGPGKeyLocation }} >/dev/null"
 
 - name: Nginx | Debian | Installing nginx
   apt:

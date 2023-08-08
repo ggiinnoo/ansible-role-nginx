@@ -1,14 +1,15 @@
-{% if ansible_distribution_major_version == 11 %}
+# Nginx official repo
+{% if ansible_distribution_major_version == '11' %}
 {% if nginxDebianRelease == 'stable' %}
-deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu bullseye nginx"
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/debian bullseye nginx
 {% elif nginxDebianRelease == 'mainline' %}
-deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/ubuntu bullseye nginx"
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/debian bullseye nginx
 {% endif %}
 
-{% elif ansible_distribution_major_version == 10 %}
+{% elif ansible_distribution_major_version == '10' %}
 {% if nginxDebianRelease == 'stable' %}
-deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu buster nginx"
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/debian buster nginx
 {% elif nginxDebianRelease == 'mainline' %}
-deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/ubuntu buster nginx"
+deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/debian buster nginx
 {% endif %}
 {% endif %}
