@@ -4,6 +4,7 @@ nginxDebianPackageName: "nginx"
 
 nginxDebianPackages:
   - gpg
+  - curl
 
 nginxDebianRepoSource: "{{ role_path }}/templates/nginxDebian.repo"
 nginxDebianRepoDestination: "/etc/apt/sources.list.d/nginx.list"
